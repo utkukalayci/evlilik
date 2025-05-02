@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hikayemiz</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #fdf6f0;
+            color: #333;
+        }
+        .section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .countdown {
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .gallery img, .gallery video {
+            width: 300px;
+            border-radius: 10px;
+        }
+        #proposal {
+            font-size: 2.5rem;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+        .final-count {
+            font-size: 4rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h1>Her şey 30 Ocak 1995'te başladı...</h1>
+        <div class="countdown" id="cd1"></div>
+        <h2>Boyunca benim doğmamı bekledin...</h2>
+        <div class="gallery">
+            <img src="s1.jpg" alt="Bebiş Şule 1">
+            <img src="s2.jpg" alt="Bebiş Şule 2">
+        </div>
+        <h2>22 Mart 1999'du seni daha fazla bekletmek istemedim...</h2>
+        <div class="gallery">
+            <img src="utku b.jpg" alt="Bebiş Utku 1">
+            <img src="u3.jpg" alt="Bebiş Utku 2">
+        </div>
+    </div>
+
+    <div class="section">
+        <h1>Ve sonra birbirimizden habersiz büyüdük...</h1>
+        <div class="countdown" id="cd2"></div>
+        <h2>Yani neredeyse 24 Yıl Boyunca...</h2>
+        <div class="gallery">
+            <img src="s3.jpg" alt="Çocuk Şule 1">
+            <img src="u1.jpg" alt="Çocuk Utku 1">
+            <img src="s4.jpg" alt="Çocuk Şule 2">
+            <img src="u4.jpg" alt="Çocuk Utku 2">
+            <img src="s5.jpg" alt="Çocuk Şule 3">
+            <img src="u5.jpg" alt="Çocuk Utku 3">
+            <img src="s6.jpg" alt="Çocuk Şule 4">
+            <img src="u6.jpg" alt="Çocuk Utku 4">
+            <img src="s7.jpg" alt="Çocuk Şule 5">
+            <img src="u7.jpg" alt="Çocuk Utku 5">
+        </div>
+    </div>
+
+    <div class="section">
+        <h1>Birlikte Gururla Aksa'da Tanıştık...</h1>
+        <div class="countdown" id="cd3"></div>
+        <h1>Boyunca Arkadaştık...</h1>
+        <h2>3 Kasım 2024'den beri 6 ay geçti...</h2>
+        <div class="gallery">
+            <img src="semt.jpg" alt="Semt77">
+            <img src="bursa.jpg" alt="Bursa">
+            <img src="araba.jpg" alt="Arabada">
+            <img src="sarıyer.jpg" alt="SArıyer">
+            <img src="dg.jpg" alt="Dogumgünü">
+            <img src="ayak kırma.jpg" alt="Bilek Burkma">
+            <img src="galata.jpg" alt="Galata">
+            <img src="konser.jpg" alt="Yalin 1">
+            <img src="karaköy.jpg" alt="Karaköy">
+            <img src="konser 2.jpg" alt="Yalin 3">
+        </div>
+    </div>
+
+    <div class="section">
+        <h1>6. Ayımıza kadar neler neler oldu...</h1>
+        <div class="countdown" id="cd4"></div>
+        <h1>Sonraki aylarımızda da daha neler neler olacak değil mi sevgilim...</h1>
+    </div>
+
+    <div class="section">
+        <h1>Öğrenmek için tek bir soru kaldı...</h1>
+        <div class="final-count" id="final-count"></div>
+        <div id="proposal">Benimle Evlenir Misin?</div>
+    </div>
+
+    <script>
+        function daysBetween(date1, date2) {
+            const diff = new Date(date2) - new Date(date1);
+            return Math.ceil(diff / (1000 * 60 * 60 * 24));
+        }
+
+        function updateCountdown(id, startDate, endDate) {
+            const el = document.getElementById(id);
+            const days = daysBetween(startDate, endDate);
+            el.innerText = `${days} gün`;
+        }
+
+        // Sayaç 1: 30 Ocak 1995 - 22 Mart 1999
+        updateCountdown("cd1", "1995-01-30", "1999-03-22");
+
+        // Sayaç 2: 22 Mart 1999 - 11 Ekim 2022
+        updateCountdown("cd2", "1999-03-22", "2022-10-11");
+
+        // Sayaç 3: 11 Ekim 2022 - 3 Kasım 2024
+        updateCountdown("cd3", "2022-10-11", "2024-11-03");
+
+        // Sayaç 4: 3 Kasım 2024 - 3 Mayıs 2025 (şu anki tarih)
+        const now = new Date();
+        const targetDate4 = new Date("2025-05-03");
+        const daysLeft = Math.ceil((targetDate4 - now) / (1000 * 60 * 60 * 24));
+        document.getElementById("cd4").innerText = `${daysLeft} gün kaldı`;
+
+
+        // Final 5-4-3-2-1
+        setTimeout(() => {
+            const final = document.getElementById("final-count");
+            let counter = 5;
+            const interval = setInterval(() => {
+                final.innerText = counter;
+                counter--;
+                if (counter < 0) {
+                    clearInterval(interval);
+                    final.innerText = "";
+                    document.getElementById("proposal").style.opacity = 1;
+                }
+            }, 1000);
+        }, 25000); // 25s sonra başlat (isteğe göre değiştirilebilir)
+    </script>
+</body>
+</html>
