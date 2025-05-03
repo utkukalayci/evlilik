@@ -12,7 +12,7 @@
             color: #333;
         }
         .section {
-            padding: 150px 20px;
+            padding: 200px 20px;
             text-align: center;
         }
         .countdown {
@@ -30,26 +30,13 @@
             border-radius: 10px;
         }
         #proposal {
-            font-size: 3rem;
+            font-size: 2.5rem;
             opacity: 0;
             transition: opacity 2s ease-in-out;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10; /* Diğer elementlerin üzerinde görünmesi için */
         }
         .final-count {
-            font-size: 5rem;
+            font-size: 4rem;
             font-weight: bold;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9; /* Proposal'ın altında kalması için */
-        }
-        .hidden {
-            display: none;
         }
     </style>
 </head>
@@ -175,7 +162,15 @@
         <h1>Tabii... Bunları yapabilmek için son bir soru var sormam gereken...</h1>
         <div class="final-count" id="final-count"></div>
     </div>
-    <div id="proposal" class="hidden">Sevgilim... Benimle Evlenir Misin?</div>
+    <div class="section">
+    </div>
+    <div class="section">
+    </div>
+    <div id="proposal">Sevgilim... Benimle Evlenir Misin?</div>
+    <div class="section">
+    </div>
+    <div class="section">
+    </div>
     <script>
         function daysBetween(date1, date2) {
             const diff = new Date(date2) - new Date(date1);
@@ -208,14 +203,13 @@
         setTimeout(() => {
             const finalCountElement = document.getElementById("final-count");
             const proposalElement = document.getElementById("proposal");
-            proposalElement.classList.remove("hidden"); // Proposal elementini görünür yap
             let counter = 5;
             const interval = setInterval(() => {
                 finalCountElement.innerText = counter;
                 counter--;
                 if (counter < 0) {
                     clearInterval(interval);
-                    finalCountElement.style.display = "none"; // Sayacı gizle
+                    finalCountElement.innerText = "";
                     proposalElement.style.opacity = 1;
                 }
             }, 1000);
