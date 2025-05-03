@@ -43,9 +43,9 @@
 <body>
     <div class="section">
         <h1>Hikayemiz 30 Ocak 1995'te başladı...</h1>
-    </div>    
+    </div>
     <div class="section">
-        <h2>Aceceli olduğun için sevgilim</h2>
+        <h2>Aceleci olduğun için sevgilim</h2>
         <div class="countdown" id="cd1"></div>
         <h2>boyunca benim doğmamı beklemen gerekti...</h2>
         <div class="gallery">
@@ -61,7 +61,7 @@
     </div>
     <div class="section">
         <h1>Ve sonra birbirimizden habersiz büyüdük...</h1>
-    </div>    
+    </div>
     <div class="section">
         <div class="countdown" id="cd2"></div>
         <h2>Yani neredeyse 24 Yıl Boyunca...</h2>
@@ -79,9 +79,9 @@
         </div>
         <h2>Bu iki çocuk tanışçaklarından habersizdi...</h2>
     </div>
-     <div class="section">
+    <div class="section">
         <h1>Yıllar içinde güldük, eğlendik, üzüldük...</h1>
-    </div>    
+    </div>
     <div class="section">
         <h1>Büyüdük....</h1>
     </div>
@@ -95,7 +95,7 @@
         <h1>Sonunda tarihler Ekim 2022'yi gösterdi...</h1>
     </div>
     <div class="section">
-        <h2>Amba uzun süreydi... Hiç bitmeyecek sanmıştım...</h2>
+        <h2>Ama uzun süreydi... Hiç bitmeyecek sanmıştım...</h2>
     </div>
     <div class="section">
         <h1>Ve Birlikte Gururla Aksa'da Tanıştık...</h1>
@@ -111,7 +111,7 @@
             <img src="semt.jpg" alt="Semt77">
             <img src="bursa.jpg" alt="Bursa">
             <img src="araba.jpg" alt="Arabada">
-            <img src="sarıyer.jpg" alt="SArıyer">
+            <img src="sarıyer.jpg" alt="Sarıyer">
             <img src="dg.jpg" alt="Dogumgünü">
             <img src="ayak kırma.jpg" alt="Bilek Burkma">
             <img src="galata.jpg" alt="Galata">
@@ -123,54 +123,46 @@
     <div class="section">
         <h1>6. Ayımıza kadar neler neler oldu...</h1>
     </div>
-     <div class="section">
-        <h2>Hayatımdaaa geçirdiğimmm ennn güzelll 6 aydııı</h2>
+    <div class="section">
+        <h2>Hayatımda geçirdiğim en güzel 6 aydı...</h2>
     </div>
     <div class="section">
         <h2>Ve 6. Ayımızın dolmasına kalan süre...</h2>
         <div class="countdown" id="cd4"></div>
         <h2>Evet... 0 gün :)</h2>
     </div>
-    </div>
-     <div class="section">
+    <div class="section">
         <h2>Sonraki aylarımızda da daha neler neler olacak değil mi sevgilim...</h2>
     </div>
-    </div>
-     <div class="section">
+    <div class="section">
         <h1>Gezilecek yerler...</h1>
-    </div
-        <div class="section">
+    </div>
+    <div class="section">
         <h1>Yenecek yemekler...</h1>
     </div>
-    </div
-        <div class="section">
+    <div class="section">
         <h1>İzlenecek diziler...filmler...</h1>
-    </div
-    </div
-        <div class="section">
-        <h2>Daha Aşk-ı Mennu'yu bile bitiremedik...</h2>
     </div>
-    </div
-        <div class="section">
+    <div class="section">
+        <h2>Daha Aşk-ı Memnu'yu bile bitiremedik...</h2>
+    </div>
+    <div class="section">
         <h1>Her şeyi buraya yazmaya kalksam biraz uzun sürebilir...</h1>
-    </div
-    </div
-        <div class="section">
+    </div>
+    <div class="section">
         <h1>Bunları ve daha fazlasını hep seninle yapmak istiyorum...</h1>
     </div>
-     </div
-        <div class="section">
+    <div class="section">
         <h1>Uyandığımda ilk seni görmek...</h1>
     </div>
-    </div
-        <div class="section">
-        <h1>uyurken son seni görmek...</h1>
+    <div class="section">
+        <h1>Uyurken son seni görmek...</h1>
     </div>
     <div class="section">
         <h1>Tabii... Bunları yapabilmek için son bir soru var sormam gereken...</h1>
         <div class="final-count" id="final-count"></div>
     </div>
-    <div id="proposal">Sevgilim...Benimle Evlenir Misin?</div>
+    <div id="proposal">Sevgilim... Benimle Evlenir Misin?</div>
     <script>
         function daysBetween(date1, date2) {
             const diff = new Date(date2) - new Date(date1);
@@ -199,20 +191,21 @@
         document.getElementById("cd4").innerText = `${daysLeft} gün kaldı`;
 
 
-        // Final 5-4-3-2-1
+        // Final 5-4-3-2-1 geri sayımı ve ardından "Benimle Evlenir Misin?" yazısını gösterme
         setTimeout(() => {
-            const final = document.getElementById("final-count");
+            const finalCountElement = document.getElementById("final-count");
+            const proposalElement = document.getElementById("proposal");
             let counter = 5;
             const interval = setInterval(() => {
-                final.innerText = counter;
+                finalCountElement.innerText = counter;
                 counter--;
                 if (counter < 0) {
                     clearInterval(interval);
-                    final.innerText = "";
-                    document.getElementById("proposal").style.opacity = 1;
+                    finalCountElement.innerText = "";
+                    proposalElement.style.opacity = 1;
                 }
             }, 1000);
-        }, 25000); // 25s sonra başlat (isteğe göre değiştirilebilir)
+        }, 25000); // 25 saniye sonra başlat (isteğe göre ayarlanabilir)
     </script>
 </body>
 </html>
